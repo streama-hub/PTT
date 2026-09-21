@@ -92,6 +92,7 @@ def create_handler_from_regexp(name: str, reg_exp: regex.Pattern, transformer: C
             clean_match = match.group(1) if len(match.groups()) >= 1 else raw_match
             sig = inspect.signature(transformer)
             param_count = len(sig.parameters)
+            previous_values = list(result[name]) if isinstance(result.get(name), list) else []
             transformed = transformer(clean_match or raw_match, *([result.get(name)] if param_count > 1 else []))
             if isinstance(transformed, str):
                 transformed = transformed.strip()
@@ -101,15 +102,32 @@ def create_handler_from_regexp(name: str, reg_exp: regex.Pattern, transformer: C
 
             other_matches = {k: v for k, v in matched.items() if k != name}
             is_skip_if_first = options.get("skipIfFirst", False) and other_matches and all(match.start() < other_matches[k]["match_index"] for k in other_matches)
+            replacement = options.get("value", transformed)
+            replaces_values = isinstance(replacement, list) and any(item not in replacement for item in previous_values)
 
+            if transformed is not None and not replaces_values and context.get("details") is not None and name in context["details"].fields and (not is_skip_if_first or name == "audio_languages"):
+                for item in reg_exp.finditer(title):
+                    if options.get("skipIfFirst", False) and other_matches and all(item.start() < other_matches[k]["match_index"] for k in other_matches):
+                        continue
+                    text = item.group(1) if item.groups() else item.group()
+                    emitted = options["value"] if "value" in options else transformer(text or item.group(), *([[]] if param_count > 1 else []))
+                    context["details"].record(name, item.span(), emitted, context["positions"])
             if transformed is not None and not is_skip_if_first:
                 matched[name] = matched.get(name, {"raw_match": raw_match, "match_index": match.start()})
                 result[name] = options.get("value", transformed)
+                if context.get("details") is not None:
+                    if replaces_values:
+                        context["details"].replacements.add(name)
+                    if "value" in options or name in context["details"].replacements:
+                        context["details"].overrides.add(name)
+                    else:
+                        context["details"].overrides.discard(name)
                 return {"raw_match": raw_match, "match_index": match.start(), "remove": options.get("remove", False), "skip_from_title": is_before_title or options.get("skipFromTitle", False)}
         return None
 
     handler.__name__ = name
     setattr(handler, "handler_name", name)
+    setattr(handler, "records_matches", True)
     return handler
 
 
@@ -150,40 +168,92 @@ def clean_title(raw_title: str) -> str:
 
 
 LANGUAGES_TRANSLATION_TABLE = {
-    "en": "English", "ja": "Japanese", "zh": "Chinese", "ru": "Russian", "ar": "Arabic", "pt": "Portuguese",
-    "es": "Spanish", "fr": "French", "de": "German", "it": "Italian", "ko": "Korean", "hi": "Hindi", "bn": "Bengali",
-    "pa": "Punjabi", "mr": "Marathi", "gu": "Gujarati", "ta": "Tamil", "te": "Telugu", "kn": "Kannada", "ml": "Malayalam",
-    "th": "Thai", "vi": "Vietnamese", "id": "Indonesian", "tr": "Turkish", "he": "Hebrew", "fa": "Persian", "uk": "Ukrainian",
-    "el": "Greek", "lt": "Lithuanian", "lv": "Latvian", "et": "Estonian", "pl": "Polish", "cs": "Czech", "sk": "Slovak",
-    "hu": "Hungarian", "ro": "Romanian", "bg": "Bulgarian", "sr": "Serbian", "hr": "Croatian", "sl": "Slovenian", "nl": "Dutch",
-    "da": "Danish", "fi": "Finnish", "sv": "Swedish", "no": "Norwegian", "ms": "Malay", "la": "Latino"
+    "en": "English",
+    "ja": "Japanese",
+    "zh": "Chinese",
+    "ru": "Russian",
+    "ar": "Arabic",
+    "pt": "Portuguese",
+    "es": "Spanish",
+    "fr": "French",
+    "de": "German",
+    "it": "Italian",
+    "ko": "Korean",
+    "hi": "Hindi",
+    "bn": "Bengali",
+    "pa": "Punjabi",
+    "mr": "Marathi",
+    "gu": "Gujarati",
+    "ta": "Tamil",
+    "te": "Telugu",
+    "kn": "Kannada",
+    "ml": "Malayalam",
+    "th": "Thai",
+    "vi": "Vietnamese",
+    "id": "Indonesian",
+    "tr": "Turkish",
+    "he": "Hebrew",
+    "fa": "Persian",
+    "uk": "Ukrainian",
+    "el": "Greek",
+    "lt": "Lithuanian",
+    "lv": "Latvian",
+    "et": "Estonian",
+    "pl": "Polish",
+    "cs": "Czech",
+    "sk": "Slovak",
+    "hu": "Hungarian",
+    "ro": "Romanian",
+    "bg": "Bulgarian",
+    "sr": "Serbian",
+    "hr": "Croatian",
+    "sl": "Slovenian",
+    "nl": "Dutch",
+    "da": "Danish",
+    "fi": "Finnish",
+    "sv": "Swedish",
+    "no": "Norwegian",
+    "ms": "Malay",
+    "la": "Latino",
 }
 
 
 def translate_langs(langs: List[str]) -> List[str]:
-    """Translate a list of language codes to their corresponding language names."""
-    return [LANGUAGES_TRANSLATION_TABLE.get(lang, "") for lang in langs if lang in LANGUAGES_TRANSLATION_TABLE]
+    """Translate language codes and regional tags to their corresponding display names."""
+    from langcodes import Language, tag_is_valid
+
+    translated = []
+    for code in langs:
+        if code in LANGUAGES_TRANSLATION_TABLE:
+            translated.append(LANGUAGES_TRANSLATION_TABLE[code])
+        elif code == "multi":
+            translated.append("Multiple languages")
+        elif "-" in code and tag_is_valid(code):
+            translated.append(Language.get(code).display_name("en"))
+    return translated
 
 
 class Parser:
     """
     A parser that can parse release titles using a set of handlers.
 
-    The parser can be used to parse release titles using a set of handlers. Each handler is a function that takes a
-    title and returns a dictionary with the parsed data. The parser will iterate over all handlers and return the first
-    non-None result.
+    Each handler receives a context containing the current title, results and matches. The parser runs all handlers
+    in order, accumulates their results and returns the parsed metadata with the cleaned title.
 
     The parser can be extended with new handlers using the add_handler method. The handler can be a function or a
     regular expression pattern. If a regular expression pattern is used, the parser will use the first group as the
     match to be transformed by the transformer function.
 
     Example:
+        >>> import regex
+        >>> from PTT import Parser
         >>> parser = Parser()
-        >>> parser.add_handler("seasons", r"Season (\\d+)", int)
-        >>> parser.add_handler("episodes", r"Episode (\\d+)", int)
-        >>> parser.add_handler("languages", r"(English|Spanish|French)", str)
+        >>> parser.add_handler("seasons", regex.compile(r"Season (\\d+)"), lambda value: [int(value)])
+        >>> parser.add_handler("episodes", regex.compile(r"Episode (\\d+)"), lambda value: [int(value)])
+        >>> parser.add_handler("audio_languages", regex.compile(r"English"), lambda value: ["en"])
         >>> result = parser.parse("The Simpsons Season 1 Episode 1 English")
-        >>> print(result)
+        >>> result["title"], result["seasons"], result["episodes"], result["audio_languages"]
+        ('The Simpsons', [1], [1], ['en-US'])
     """
 
     def __init__(self):
@@ -217,16 +287,25 @@ class Parser:
         Parse a release title and return the parsed data as a dictionary.
 
         :param title: The release title to parse.
-        :param translate_languages: Whether to translate language codes to language names or short codes (default: False returns short codes)
+        :param translate_languages: Whether to translate regional language tags to display names.
         :return: A dictionary containing the parsed data.
         """
+        from .metadata import MatchDetails
+
         title = SUB_PATTERN.sub(" ", title)
+        details = MatchDetails(title)
+        positions = list(range(len(title)))
         result: Dict[str, Any] = {}
         matched: Dict[str, Any] = {}
         end_of_title = len(title)
 
         for handler in self.handlers:
-            match_result = handler({"title": title, "result": result, "matched": matched})
+            context = {"title": title, "result": result, "matched": matched, "details": details, "positions": positions}
+            records_matches = getattr(handler, "records_matches", False)
+            previous = {field: list(value) if isinstance(value, list) else value for field, value in result.items() if field in details.refined_fields} if not records_matches else {}
+            match_result = handler(context)
+            if not records_matches:
+                details.track_changes(previous, result)
 
             if DEBUG_HANDLER is True or (isinstance(DEBUG_HANDLER, str) and hasattr(handler, "handler_name") and DEBUG_HANDLER in getattr(handler, "handler_name", "")):
                 print(getattr(handler, "handler_name", "unknown"), match_result, title)
@@ -241,6 +320,7 @@ class Parser:
 
             if remove:
                 title = title[:match_index] + title[match_index + len(raw_match) :]
+                del positions[match_index : match_index + len(raw_match)]
             if not skip_from_title and match_index and 1 < match_index < end_of_title:
                 end_of_title = match_index
             if remove and skip_from_title and match_index < end_of_title:
@@ -248,11 +328,11 @@ class Parser:
 
         result.setdefault("episodes", [])
         result.setdefault("seasons", [])
-        result.setdefault("languages", [])
+        result.setdefault("audio_languages", [])
 
-        if translate_languages:
-            if result["languages"]:
-                result["languages"] = translate_langs(result["languages"])
+        title_positions = positions[:end_of_title]
+        details.title_end = title_positions[-1] + 1 if title_positions else 0
+        details.apply(result, translate_languages)
 
         # Clean the title up to end_of_title before further processing.
         title = title[:end_of_title]

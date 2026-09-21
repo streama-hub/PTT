@@ -1,7 +1,7 @@
 import argparse
-import sys
-import os
 import json
+import os
+import sys
 
 
 def main():
@@ -12,7 +12,7 @@ def main():
     parse_parser = subparsers.add_parser("parse", help="Parse a filename or torrent name")
     parse_parser.add_argument("filename", type=str, help="The name of the file or torrent to be parsed")
     parse_parser.add_argument("-a", "--anime", action="store_true", help="Enable parsing of anime titles")
-    parse_parser.add_argument("-tl", "--translate-languages", action="store_true", help="Translate language codes (e.g., 'en', 'jp') to their full language names (e.g., 'English', 'Japanese')")
+    parse_parser.add_argument("-tl", "--translate-languages", action="store_true", help="Translate audio and subtitle language tags to their display names")
 
     # Sort command
     sort_parser = subparsers.add_parser("sort", help="Sort a file by count. Requires `keyword,count` format on every line.")

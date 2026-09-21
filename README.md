@@ -15,10 +15,10 @@ Parsett is a flexible and powerful toolkit for parsing and transforming torrent 
 
 ## Installation
 
-To install parsett, you can use pip:
+To install parsett:
 
 ```bash
-pip install parsett
+pip install git+https://github.com/streama-hub/PTT.git
 ```
 
 ## Quick Start
@@ -34,7 +34,7 @@ result = parse_title("The Simpsons S01E01 1080p BluRay x265 HEVC 10bit AAC 5.1 T
 print(result)
 ```
 
-By default, languages are 2-char ISO 639-1 Standardized codes, not full names. 
+By default, audio and subtitle languages use regional tags such as `en-US` and `fr-CA`, not full names.
 To get the full names, you can add the argument `translate_languages` to `parse_title()`:
 
 ```python
@@ -42,9 +42,75 @@ result = parse_title("The.Walking.Dead.S06E07.SUBFRENCH.HDTV.x264-AMB3R.mkv", tr
 print(result)
 ```
 
-Would result in a `languages` field with the value `["French"]` instead of `["fr"]`.
+This example returns `subtitle_languages: ["French (France)"]` instead of `["fr-FR"]`.
+Its `audio_languages` list remains empty because SUBFRENCH identifies subtitles, not audio.
 
 ## Examples
+
+### Regional and detailed metadata
+
+Audio languages use `audio_languages` in parsed dictionaries, CLI JSON and custom
+handler registration. Consumers of earlier versions must replace accesses to
+`languages`; the result does not contain a duplicate legacy field.
+
+The parser returns regional languages and detailed technical metadata:
+
+```python
+result = parse_title(
+    "Example.2024.1080p.JAPANESE.VOSTFR.DTS-HD.MA.7.1.4",
+)
+# audio_languages: ["ja-JP"]
+# subtitle_languages: ["fr-FR"]
+# audio: ["DTS-HD MA"]
+# channels: ["7.1.4"]
+```
+
+- Regional language tags preserve explicit variants such as VFQ (`fr-CA`) and
+  VFF (`fr-FR`). A missing region uses the pinned CLDR likely-region convention;
+  it is not evidence of the actual dubbing region. Script distinctions such as
+  `zh-Hant-TW` are retained. `multi` remains a sentinel, not a language tag.
+- `audio_languages` describes audio; `subtitle_languages` describes explicit subtitle
+  languages. Generic native language detections without a subtitle indication
+  keep their upstream audio interpretation. Both fields are deduplicated lists.
+  Role labels are scoped to metadata or explicit language blocks, not title words.
+  Nested subtitle lists retain their enclosing role; SDH does not imply audio.
+  `SUBBED` alone does not establish a subtitle language.
+- Codec refinements distinguish DTS-HD MA/HRA, DTS-X and HE-AAC/v2 without removing
+  separate codec occurrences. Three-component channel layouts, HDR10/10+/HLG and
+  explicit `dolby_vision_profiles` are preserved.
+
+The handler pipeline records native match locations before text removal and refines only the corresponding
+metadata occurrences. It does not parse the title a second time. Title, season,
+episode, group and site retain the upstream behavior, including its limitations.
+The false HDTV source inferred from DTS-HD is removed when no separate HDTV marker
+exists. Extended and remastered flags are completed from the recognized edition.
+No title-protection, numbered REPACK, 3D-layout or additional
+subtitle-attribute feature is included.
+
+`Parser.parse()` returns the same data. `translate_languages=True` translates
+both language lists. The CLI uses the same output without an extra option:
+
+```bash
+ptt parse "Example.2024.1080p.VFQ"
+```
+
+There is no legacy output mode or version field. Consumers expecting short language
+codes or coarse codec names must be adapted before upgrading.
+
+Custom handler values supplied through `options["value"]` remain authoritative
+for that result field until another handler writes it. Language values still use
+regional tags and optional display-name translation.
+If a regex handler's transformer removes earlier list values, metadata refinement
+does not restore them. Subsequent handlers can still append or replace values;
+the final list is preserved for that parse call.
+
+The parser handles release names, not MediaInfo reports or free-form descriptions.
+Language markers and simple labelled lists are supported. Leading SDH/Forced
+annotation lists and nested annotation traversal are not supported.
+Ordinary subtitle markers and subtitle filenames such as `English {SDH}.srt`
+remain supported. A successful parse is not validation of the actual media tracks.
+
+### Parsed examples
 
 Here are some examples of parsed torrent titles:
 
@@ -59,7 +125,8 @@ Here are some examples of parsed torrent titles:
     "title": "The Simpsons",
     "seasons": [1],
     "episodes": [1],
-    "languages": [],
+    "audio_languages": [],
+    "subtitle_languages": [],
     "resolution": "1080p",
     "quality": "BluRay",
     "codec": "hevc",
@@ -81,7 +148,8 @@ Here are some examples of parsed torrent titles:
     "year": 2021,
     "seasons": [1],
     "episodes": [1, 2, 3, 4, 5, 6, 7, 8],
-    "languages": ["Hindi", "Telugu", "Tamil"],
+    "audio_languages": ["ta-IN", "te-IN", "hi-IN"],
+    "subtitle_languages": ["en-US"],
     "quality": "HDRip",
     "resolution": "720p",
     "codec": "avc",
@@ -89,7 +157,7 @@ Here are some examples of parsed torrent titles:
     "channels": ["5.1"],
     "site": "www.Tamilblasters.party",
     "size": "2.7GB",
-    "trash": True
+    "trash": true
 }
 ```
 
@@ -104,7 +172,8 @@ Here are some examples of parsed torrent titles:
     "title": "The Walking Dead",
     "seasons": [6],
     "episodes": [7],
-    "languages": ["French"],
+    "audio_languages": [],
+    "subtitle_languages": ["fr-FR"],
     "quality": "HDTV",
     "codec": "avc",
     "group": "AMB3R",
@@ -136,6 +205,7 @@ Here are the fields that are currently supported by the default handlers, along 
 - `quality`: `str`
 - `bit_depth`: `str`
 - `hdr`: `list[str]`
+- `dolby_vision_profiles`: `list[str]`
 - `codec`: `str`
 - `audio`: `list[str]`
 - `channels`: `list[str]`
@@ -146,7 +216,8 @@ Here are the fields that are currently supported by the default handlers, along 
 - `episodes`: `list[int]`
 - `episode_code`: `str`
 - `complete`: `bool`
-- `languages`: `list[str]`
+- `audio_languages`: `list[str]`
+- `subtitle_languages`: `list[str]`
 - `dubbed`: `bool`
 - `site`: `str`
 - `extension`: `str`
@@ -184,15 +255,14 @@ A handler is a function that processes a specific pattern in the input string. H
 import regex
 from PTT.parse import Parser
 
-def hashtag_handler(input_string):
-    hashtags = regex.findall(r"#(\w+)", input_string)
-    return {"hashtags": hashtags}
+def hashtag_handler(context):
+    context["result"]["hashtags"] = regex.findall(r"#(\w+)", context["title"])
 
 # Create a new parser instance
 parser = Parser()
 
 # Add the custom handler
-parser.add_handler("hashtags", regex.compile(r"#(\w+)"), hashtag_handler)
+parser.add_handler(hashtag_handler)
 
 # Parse a string
 result = parser.parse("This is a test string with #hashtags and #morehashtags.")
@@ -219,7 +289,7 @@ The `parsett` library offers a variety of built-in transformers to help you mani
 ### Example Usage of Transformers
 
 ```python
-from parsett.transformers import lowercase, uppercase
+from PTT.transformers import lowercase, uppercase
 
 # Add a handler with a transformer
 parser.add_handler("lowercase_example", regex.compile(r"[A-Z]+"), lowercase)
@@ -245,8 +315,8 @@ default_options = {
 ### Option Details
 
 - `skipIfAlreadyFound`: If `True`, the handler will not process the input if the field has already been found.
-- `skipFromTitle`: If `True`, the matched pattern will be excluded from the title.
-- `skipIfFirst`: If `True`, the handler will not process the input if it is the first handler.
+- `skipFromTitle`: If `True`, the match does not mark the end of the title. The matched text remains unless `remove` is also `True`.
+- `skipIfFirst`: If `True` and other fields have matched, ignore a match located before all those matches in the remaining title.
 - `remove`: If `True`, the matched pattern will be removed from the input string.
 
 ### Example Usage of Options
@@ -284,11 +354,8 @@ print(result)
 Let's create a custom handler to extract the uploader name from a torrent title:
 
 ```python
-def uploader_handler(input_string):
-    match = regex.search(r"Uploader: ([\w\s]+)", input_string)
-    if match:
-        return {"uploader": match.group(1)}
-    return {}
+def uploader_handler(value):
+    return value
 
 # Add the custom handler
 parser.add_handler("uploader", regex.compile(r"Uploader: ([\w\s]+)"), uploader_handler)
@@ -300,15 +367,17 @@ print(result)
 
 ## Development
 
-To get started with development, clone the repository and install the dependencies with `poetry`:
+To get started with development, clone the repository and install the dependencies with `uv`:
 
 ```bash
-poetry install
+git clone https://github.com/streama-hub/PTT.git
+cd PTT
+uv sync --all-extras
 ```
 
 ## Contributing
 
-Contributions are welcome! If you have ideas for new features or improvements, feel free to open an issue or submit a pull request on GitHub.
+Contributions are welcome! Submit improvements through a [pull request](https://github.com/streama-hub/PTT/pulls).
 
 ## License
 

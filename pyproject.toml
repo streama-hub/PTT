@@ -1,14 +1,21 @@
 [project]
 name = "parsett"
-version = "1.8.5"
+version = "1.0.0"
 description = "Parsett - Torrent Parser with Adult Content Detection"
+readme = "README.md"
 authors = [{ name = "Dreu LaVelle", email = "dreu.lavelle@gmail.com" }]
 requires-python = ">=3.10,<4"
 license = "MIT"
 dependencies = [
     "arrow>=1.3.0,<2",
     "regex>=2025.10.23,<2026",
+    "langcodes==3.5.1",
+    "language-data==1.3.0",
 ]
+
+[project.urls]
+Repository = "https://github.com/streama-hub/PTT"
+Upstream = "https://github.com/dreulavelle/PTT"
 
 [project.scripts]
 parsett = "PTT.cli:main"

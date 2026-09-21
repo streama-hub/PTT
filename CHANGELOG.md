@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.0.0
+
+Initial release of this fork. The dated entries below document the upstream project's history.
+
+### Changes
+
+* Return regional `audio_languages` and separate `subtitle_languages` in parsed data and CLI output.
+* Preserve explicit regional variants, multi-language markers and audio/subtitle roles.
+* Refine DTS-HD MA/HRA, DTS-X, HE-AAC/v2, complex channel layouts, HDR formats and explicit Dolby Vision profiles.
+* Complete extended and remastered flags from recognized editions without changing title or episode parsing.
+* Preserve custom handler replacements and removals during metadata refinement.
+* Avoid inferring HDTV from DTS-HD and retain complex channel layouts before a dotted resolution.
+* Reuse compiled language patterns while respecting translation table updates.
+* Correct documentation examples and installation instructions.
+
+### Compatibility
+
+* Consumers must use `audio_languages` instead of `languages` and support regional language tags.
+* There is one output contract, without a legacy output mode or result-version option.
+* Title cleanup retains upstream behavior and limitations. Annotated-list extensions beyond the documented release markers are not included.
+
+
 ## [1.6.16](https://github.com/dreulavelle/PTT/compare/v1.6.15...v1.6.16) (2025-08-16)
 
 

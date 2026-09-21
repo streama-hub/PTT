@@ -1,6 +1,6 @@
 from .handlers import add_defaults
-from .transformers import *
 from .parse import Parser
+from .transformers import *
 
 _parser = Parser()
 add_defaults(_parser)
@@ -11,7 +11,7 @@ def parse_title(raw_title: str, translate_languages: bool = False) -> dict:
     Parse the given input string using the initialized parser instance.
 
     :param raw_title: The input raw torrent title to parse.
-    :param translate_languages: Whether to translate language codes to language names or short codes (default: False returns short codes)
+    :param translate_languages: Whether to translate regional language tags to display names.
     :return: A dictionary with the parsed results.
     """
     return _parser.parse(raw_title, translate_languages)

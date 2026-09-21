@@ -14,9 +14,10 @@ def parser():
 @pytest.mark.parametrize("release_name, expected", [
     ("UFC.239.PPV.Jones.Vs.Santos.HDTV.x264-PUNCH[TGx]", {
         "title": "UFC 239 Jones Vs Santos",
+        "subtitle_languages": [],
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "quality": "HDTV",
         "codec": "avc",
         "group": "PUNCH",
@@ -24,9 +25,10 @@ def parser():
     }),
     ("UFC.Fight.Night.158.Cowboy.vs.Gaethje.WEB.x264-PUNCH[TGx]", {
         "title": "UFC Fight Night 158 Cowboy vs Gaethje",
+        "subtitle_languages": [],
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "quality": "WEB",
         "codec": "avc",
         "group": "PUNCH",
@@ -34,9 +36,10 @@ def parser():
     }),
     ("UFC 226 PPV Miocic vs Cormier HDTV x264-Ebi [TJET]", {
         "title": "UFC 226 Miocic vs Cormier",
+        "subtitle_languages": [],
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "quality": "HDTV",
         "codec": "avc",
         "ppv": True,

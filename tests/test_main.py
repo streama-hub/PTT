@@ -20,54 +20,61 @@ def parser():
         "quality": "BluRay",
         "codec": "avc",
         "group": "GAnGSteR",
-        "languages": []
+        "audio_languages": [],
+        "subtitle_languages": []
     }),
     ("Color.Of.Night.Unrated.DC.VostFR.BRrip.x264", {
         "title": "Color Of Night",
         "unrated": True,
-        "languages": ["fr"],
+        "audio_languages": [],
         "quality": "BRRip",
         "codec": "avc",
         "seasons": [],
-        "episodes": []
+        "episodes": [],
+        "subtitle_languages": ['fr-FR']
     }),
     ("Da Vinci Code DVDRip", {
         "title": "Da Vinci Code",
         "quality": "DVDRip",
-        "languages": [],
+        "audio_languages": [],
         "seasons": [],
-        "episodes": []
+        "episodes": [],
+        "subtitle_languages": []
     }),
     ("Some.girls.1998.DVDRip", {
         "title": "Some girls",
         "quality": "DVDRip",
         "year": 1998,
-        "languages": [],
+        "audio_languages": [],
         "seasons": [],
-        "episodes": []
+        "episodes": [],
+        "subtitle_languages": []
     }),
     ("Ecrit.Dans.Le.Ciel.1954.MULTI.DVDRIP.x264.AC3-gismo65", {
         "title": "Ecrit Dans Le Ciel",
         "quality": "DVDRip",
         "year": 1954,
-        "languages": [],
+        "audio_languages": ['multi'],
         "dubbed": True,
         "codec": "avc",
         "audio": ["Dolby Digital"],
         "group": "gismo65",
         "seasons": [],
-        "episodes": []
+        "episodes": [],
+        "subtitle_languages": []
     }),
     ("2019 After The Fall Of New York 1983 REMASTERED BDRip x264-GHOULS", {
         "title": "2019 After The Fall Of New York",
         "quality": "BDRip",
         "edition": "Remastered",
+        "remastered": True,
         "year": 1983,
         "codec": "avc",
         "group": "GHOULS",
-        "languages": [],
+        "audio_languages": [],
         "seasons": [],
-        "episodes": []
+        "episodes": [],
+        "subtitle_languages": []
     }),
     ("Ghost In The Shell 2017 720p HC HDRip X264 AC3-EVO", {
         "title": "Ghost In The Shell",
@@ -78,9 +85,10 @@ def parser():
         "codec": "avc",
         "audio": ["Dolby Digital"],
         "group": "EVO",
-        "languages": [],
+        "audio_languages": [],
         "seasons": [],
-        "episodes": []
+        "episodes": [],
+        "subtitle_languages": []
     }),
     ("Rogue One 2016 1080p BluRay x264-SPARKS", {
         "title": "Rogue One",
@@ -89,21 +97,23 @@ def parser():
         "resolution": "1080p",
         "codec": "avc",
         "group": "SPARKS",
-        "languages": [],
+        "audio_languages": [],
         "seasons": [],
-        "episodes": []
+        "episodes": [],
+        "subtitle_languages": []
     }),
     ("Desperation 2006 Multi Pal DvdR9-TBW1973", {
         "title": "Desperation",
         "quality": "DVD",
         "year": 2006,
-        "languages": [],
+        "audio_languages": ['multi'],
         "dubbed": True,
         "region": "R9",
         "group": "TBW1973",
         "seasons": [],
         "episodes": [],
-        "dubbed": True
+        "dubbed": True,
+        "subtitle_languages": []
     }),
     ("Maman, j'ai raté l'avion 1990 VFI 1080p BluRay DTS x265-HTG", {
         "title": "Maman, j'ai raté l'avion",
@@ -111,25 +121,28 @@ def parser():
         "year": 1990,
         "audio": ["DTS Lossy"],
         "resolution": "1080p",
-        "languages": ["fr"],
+        "audio_languages": ['fr-FR'],
         "codec": "hevc",
         "group": "HTG",
         "seasons": [],
-        "episodes": []
+        "episodes": [],
+        "subtitle_languages": []
     }),
     ("Game of Thrones - The Complete Season 3 [HDTV]", {
         "title": "Game of Thrones",
         "seasons": [3],
         "quality": "HDTV",
-        "languages": [],
+        "audio_languages": [],
         "episodes": [],
+        "subtitle_languages": []
     }),
     ("The Sopranos: The Complete Series (Season 1,2,3,4,5&6) + Extras", {
         "title": "The Sopranos",
         "seasons": [1, 2, 3, 4, 5, 6],
         "complete": True,
-        "languages": [],
+        "audio_languages": [],
         "episodes": [],
+        "subtitle_languages": []
     }),
     ("Skins Season S01-S07 COMPLETE UK Soundtrack 720p WEB-DL", {
         "seasons": [1, 2, 3, 4, 5, 6, 7],
@@ -137,9 +150,10 @@ def parser():
         "country": "UK",
         "resolution": "720p",
         "quality": "WEB-DL",
-        "languages": [],
+        "audio_languages": [],
         "episodes": [],
-        "complete": True
+        "complete": True,
+        "subtitle_languages": []
     }),
     ("Futurama.COMPLETE.S01-S07.720p.BluRay.x265-HETeam", {
         "title": "Futurama",
@@ -148,45 +162,50 @@ def parser():
         "quality": "BluRay",
         "codec": "hevc",
         "group": "HETeam",
-        "languages": [],
+        "audio_languages": [],
         "episodes": [],
-        "complete": True
+        "complete": True,
+        "subtitle_languages": []
     }),
     ("You.[Uncut].S01.SweSub.1080p.x264-Justiso", {
         "title": "You",
         "edition": "Uncut",
         "seasons": [1],
-        "languages": ["sv"],
+        "audio_languages": [],
         "resolution": "1080p",
         "codec": "avc",
         "group": "Justiso",
-        "episodes": []
+        "episodes": [],
+        "subtitle_languages": ['sv-SE']
     }),
     ("Stephen Colbert 2019 10 25 Eddie Murphy 480p x264-mSD [eztv]", {
         "title": "Stephen Colbert",
         "date": "2019-10-25",
         "resolution": "480p",
         "codec": "avc",
-        "languages": [],
+        "audio_languages": [],
         "seasons": [],
-        "episodes": []
+        "episodes": [],
+        "subtitle_languages": []
     }),
     ("House MD Season 7 Complete MKV", {
         "title": "House MD",
         "seasons": [7],
         "container": "mkv",
-        "languages": [],
+        "audio_languages": [],
         "episodes": [],
-        "complete": True
+        "complete": True,
+        "subtitle_languages": []
     }),
     ("2008 The Incredible Hulk Feature Film.mp4", {
         "title": "The Incredible Hulk Feature Film",
         "year": 2008,
         "container": "mp4",
         "extension": "mp4",
-        "languages": [],
+        "audio_languages": [],
         "seasons": [],
-        "episodes": []
+        "episodes": [],
+        "subtitle_languages": []
     }),
     ("【4月/悠哈璃羽字幕社】[UHA-WINGS][不要输！恶之军团][Makeruna!! Aku no Gundan!][04][1080p AVC_AAC][简繁外挂][sc_tc]", {
         "title": "Makeruna!! Aku no Gundan!",
@@ -194,9 +213,10 @@ def parser():
         "resolution": "1080p",
         "codec": "avc",
         "audio": ["AAC"],
-        "languages": ["zh"],
+        "audio_languages": ['zh-CN'],
         "seasons": [],
-        "trash": True
+        "trash": True,
+        "subtitle_languages": []
     }),
     ("[GM-Team][国漫][西行纪之集结篇][The Westward Ⅱ][2019][17][AVC][GB][1080P]", {
         "title": "The Westward Ⅱ",
@@ -205,18 +225,20 @@ def parser():
         "resolution": "1080p",
         "codec": "avc",
         "group": "GM-Team",
-        "languages": ["zh"],
+        "audio_languages": ['zh-CN'],
         "seasons": [],
+        "subtitle_languages": []
     }),
     ("Черное зеркало / Black Mirror / Сезон 4 / Серии 1-6 (6) [2017, США, WEBRip 1080p] MVO + Eng Sub", {
         "title": "Black Mirror",
         "year": 2017,
         "seasons": [4],
         "episodes": [1, 2, 3, 4, 5, 6],
-        "languages": ["en", "ru"],
+        "audio_languages": ['ru-RU'],
         "resolution": "1080p",
         "quality": "WEBRip",
-        "subbed": True
+        "subbed": True,
+        "subtitle_languages": ['en-US']
     }),
     ("[neoHEVC] Student Council's Discretion / Seitokai no Ichizon [Season 1] [BD 1080p x265 HEVC AAC]", {
         "title": "Student Council's Discretion / Seitokai no Ichizon",
@@ -226,8 +248,9 @@ def parser():
         "audio": ["AAC"],
         "codec": "hevc",
         "group": "neoHEVC",
-        "languages": [],
-        "episodes": []
+        "audio_languages": [],
+        "episodes": [],
+        "subtitle_languages": []
     }),
     ("[Commie] Chihayafuru 3 - 21 [BD 720p AAC] [5F1911ED].mkv", {
         "title": "Chihayafuru 3",
@@ -239,15 +262,17 @@ def parser():
         "extension": "mkv",
         "episode_code": "5F1911ED",
         "group": "Commie",
-        "languages": [],
+        "audio_languages": [],
         "seasons": [],
+        "subtitle_languages": []
     }),
     ("[DVDRip-ITA]The Fast and the Furious: Tokyo Drift [CR-Bt]", {
         "title": "The Fast and the Furious: Tokyo Drift",
         "quality": "DVDRip",
-        "languages": ["it"],
+        "audio_languages": ['it-IT'],
         "seasons": [],
-        "episodes": []
+        "episodes": [],
+        "subtitle_languages": []
     }),
     ("[BluRay Rip 720p ITA AC3 - ENG AC3 SUB] Hostel[2005]-LIFE[ultimafrontiera]", {
         "title": "Hostel",
@@ -255,34 +280,38 @@ def parser():
         "resolution": "720p",
         "quality": "BRRip",
         "audio": ["Dolby Digital"],
-        "languages": ["en", "it"],
+        "audio_languages": ['it-IT', 'en-US'],
         "group": "LIFE",
         "seasons": [],
         "episodes": [],
-        "subbed": True
+        "subbed": True,
+        "subtitle_languages": []
     }),
     ("[OFFICIAL ENG SUB] Soul Land Episode 121-125 [1080p][Soft Sub][Web-DL][Douluo Dalu][斗罗大陆]", {
         "title": "Soul Land",
         "seasons": [],
         "episodes": [121, 122, 123, 124, 125],
-        "languages": ["en", "zh"],
+        "audio_languages": ['zh-CN'],
         "resolution": "1080p",
         "quality": "WEB-DL",
-        "subbed": True
+        "subbed": True,
+        "subtitle_languages": ['en-US']
     }),
     ("[720p] The God of Highschool Season 1", {
         "title": "The God of Highschool",
         "seasons": [1],
         "resolution": "720p",
-        "languages": [],
-        "episodes": []
+        "audio_languages": [],
+        "episodes": [],
+        "subtitle_languages": []
     }),
     ("Heidi Audio Latino DVDRip [cap. 3 Al 18]", {
         "title": "Heidi",
         "episodes": [3],
         "quality": "DVDRip",
-        "languages": ["la"],
+        "audio_languages": ['es-419'],
         "seasons": [],
+        "subtitle_languages": []
     }),
     ("Anatomia De Grey - Temporada 19 [HDTV][Castellano][www.AtomoHD.nu].avi", {
         "title": "Anatomia De Grey",
@@ -290,22 +319,24 @@ def parser():
         "episodes": [],
         "container": "avi",
         "extension": "avi",
-        "languages": ["es"],
+        "audio_languages": ['es-ES'],
         "quality": "HDTV",
         "site": "www.AtomoHD.nu",
+        "subtitle_languages": []
     }),
     ("Sprint.2024.S01.COMPLETE.1080p.WEB.h264-EDITH[TGx]", {
         "title": "Sprint",
         "year": 2024,
         "seasons": [1],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "quality": "WEB",
         "resolution": "1080p",
         "scene": True,
         "codec": "avc",
         "group": "EDITH",
-        "complete": True
+        "complete": True,
+        "subtitle_languages": []
     }),
     ("Madame Web 2024 UHD BluRay 2160p TrueHD Atmos 7 1 DV HEVC REMUX-FraMeSToR", {
         "title": "Madame Web",
@@ -315,28 +346,30 @@ def parser():
         "channels": ["7.1"],
         "audio": ["Atmos", "TrueHD"],
         "codec": "hevc",
-        "languages": [],
+        "audio_languages": [],
         "seasons": [],
         "episodes": [],
         "hdr": ["DV"],
-        "group": "FraMeSToR"
+        "group": "FraMeSToR",
+        "subtitle_languages": []
     }),
     ("The.Witcher.US.S01.INTERNAL.1080p.WEB.x264-STRiFE", {
         "title": "The Witcher",
         "seasons": [1],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "country": "US",
         "quality": "WEB",
         "resolution": "1080p",
         "scene": True,
         "codec": "avc",
-        "group": "STRiFE"
+        "group": "STRiFE",
+        "subtitle_languages": []
     }),
     ("Madame Web (2024) 1080p HINDI ENGLISH 10bit AMZN WEBRip DDP5 1 x265 HEVC - PSA Shadow", {
         "title": "Madame Web",
         "year": 2024,
-        "languages": ["en", "hi"],
+        "audio_languages": ['hi-IN', 'en-US'],
         "quality": "WEBRip",
         "resolution": "1080p",
         "bit_depth": "10bit",
@@ -345,19 +378,21 @@ def parser():
         "codec": "hevc",
         "seasons": [],
         "episodes": [],
-        "network": "Amazon"
+        "network": "Amazon",
+        "subtitle_languages": []
     }),
     ("The Simpsons S01E01 1080p BluRay x265 HEVC 10bit AAC 5.1 Tigole", {
         "title": "The Simpsons",
         "seasons": [1],
         "episodes": [1],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "1080p",
         "quality": "BluRay",
         "codec": "hevc",
         "bit_depth": "10bit",
         "audio": ["AAC"],
-        "channels": ["5.1"]
+        "channels": ["5.1"],
+        "subtitle_languages": []
     }),
     ("[DB]_Bleach_264_[012073FE].avi", {
         "title": "Bleach",
@@ -366,8 +401,9 @@ def parser():
         "episode_code": "012073FE",
         "seasons": [],
         "episodes": [264],
-        "languages": [],
-        "group": "DB"
+        "audio_languages": [],
+        "group": "DB",
+        "subtitle_languages": []
     }),
     ("[SubsPlease] One Piece - 1111 (480p) [2E05E658].mkv", {
         "title": "One Piece",
@@ -377,41 +413,45 @@ def parser():
         "episode_code": "2E05E658",
         "seasons": [],
         "episodes": [1111],
-        "languages": [],
-        "group": "SubsPlease"
+        "audio_languages": [],
+        "group": "SubsPlease",
+        "subtitle_languages": []
     }),
     ("One Piece S01E1056 VOSTFR 1080p WEB x264 AAC -Tsundere-Raws (CR) mkv", {
         "title": "One Piece",
         "seasons": [1],
         "episodes": [1056],
-        "languages": ["fr"],
+        "audio_languages": [],
         "container": "mkv",
         "resolution": "1080p",
         "scene": True,
         "quality": "WEB",
         "codec": "avc",
         "audio": ["AAC"],
+        "subtitle_languages": ['fr-FR']
     }),
     ("Mary.Poppins.1964.50th.ANNIVERSARY.EDITION.REMUX.1080p.Bluray.AVC.DTS-HD.MA.5.1-LEGi0N", {
         "title": "Mary Poppins",
         "year": 1964,
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "edition": "Anniversary Edition",
         "quality": "BluRay REMUX",
         "resolution": "1080p",
-        "audio": ["DTS Lossless"],
+        "audio": ['DTS-HD MA'],
         "channels": ["5.1"],
         "codec": "avc",
-        "group": "LEGi0N"
+        "group": "LEGi0N",
+        "subtitle_languages": []
     }),
     ("The.Lord.of.the.Rings.The.Fellowship.of.the.Ring.2001.EXTENDED.2160p.UHD.BluRay.x265.10bit.HDR.TrueHD.7.1.Atmos-BOREDOR", {
         "title": "The Lord of the Rings The Fellowship of the Ring",
         "year": 2001,
         "resolution": "2160p",
         "edition": "Extended Edition",
-        "languages": [],
+        "extended": True,
+        "audio_languages": [],
         "seasons": [],
         "episodes": [],
         "quality": "BluRay",
@@ -420,12 +460,13 @@ def parser():
         "audio": ["Atmos", "TrueHD"],
         "channels": ["7.1"],
         "hdr": ["HDR"],
-        "group": "BOREDOR"
+        "group": "BOREDOR",
+        "subtitle_languages": []
     }),
     ("Escaflowne (2000) (BDRip 1896x1048p x265 HEVC TrueHD, FLACx3, AC3 5.1x2+2.0x3)(Triple Audio)[sxales].mkv", {
         "title": "Escaflowne",
         "year": 2000,
-        "languages": [],
+        "audio_languages": [],
         "seasons": [],
         "episodes": [],
         "quality": "BDRip",
@@ -436,12 +477,13 @@ def parser():
         # "group": "sxales",
         "dubbed": True,
         "container": "mkv",
-        "extension": "mkv"
+        "extension": "mkv",
+        "subtitle_languages": []
     }),
     ("[www.1TamilMV.pics]_The.Great.Indian.Suicide.2023.Tamil.TRUE.WEB-DL.4K.SDR.HEVC.(DD+5.1.384Kbps.&.AAC).3.2GB.ESub.mkv", {
         "title": "The Great Indian Suicide",
         "year": 2023,
-        "languages": ["en", "ta"],
+        "audio_languages": ['ta-IN'],
         "seasons": [],
         "episodes": [],
         "quality": "WEB-DL",
@@ -455,11 +497,12 @@ def parser():
         "bitrate": "384kbps",
         "audio": ["TrueHD", "Dolby Digital Plus", "AAC"],
         "channels": ["5.1"],
+        "subtitle_languages": ['en-US']
     }),
     ("www.5MovieRulz.show - Khel Khel Mein (2024) 1080p Hindi DVDScr - x264 - AAC - 2.3GB.mkv", {
         "title": "Khel Khel Mein",
         "year": 2024,
-        "languages": ["hi"],
+        "audio_languages": ['hi-IN'],
         "seasons": [],
         "episodes": [],
         "quality": "SCR",
@@ -470,13 +513,14 @@ def parser():
         "extension": "mkv",
         "size": "2.3GB",
         "site": "www.5MovieRulz.show",
-        "trash": True
+        "trash": True,
+        "subtitle_languages": []
     }),
     ("超能警探.Memorist.S01E01.2160p.WEB-DL.H265.AAC-FLTTH.mkv", {
         "title": "Memorist",
         "seasons": [1],
         "episodes": [1],
-        "languages": ["zh"],
+        "audio_languages": ['zh-CN'],
         "quality": "WEB-DL",
         "codec": "hevc",
         "audio": ["AAC"],
@@ -484,12 +528,13 @@ def parser():
         "container": "mkv",
         "extension": "mkv",
         "group": "FLTTH",
+        "subtitle_languages": []
     }),
     ("Futurama.S08E03.How.the.West.Was.1010001.1080p.HULU.WEB-DL.DDP5.1.H.264-FLUX.mkv", {
         "title": "Futurama",
         "seasons": [8],
         "episodes": [3],
-        "languages": [],
+        "audio_languages": [],
         "network": "Hulu",
         "codec": "avc",
         "container": "mkv",
@@ -498,37 +543,40 @@ def parser():
         "channels": ["5.1"],
         "quality": "WEB-DL",
         "resolution": "1080p",
-        "group": "FLUX"
+        "group": "FLUX",
+        "subtitle_languages": []
     }),
     ("V.H.S.2 [2013] 1080p BDRip x265 DTS-HD MA 5.1 Kira [SEV].mkv", {
         "title": "V H S 2",
         "year": 2013,
-        "languages": [],
+        "audio_languages": [],
         "seasons": [],
         "episodes": [],
         "quality": "BDRip",
         "codec": "hevc",
-        "audio": ["DTS Lossless"],
+        "audio": ['DTS-HD MA'],
         "channels": ["5.1"],
         "container": "mkv",
         "extension": "mkv",
-        "resolution": "1080p"
+        "resolution": "1080p",
+        "subtitle_languages": []
     }),
     ("{WWW.BLUDV.TV} Love, Death & Robots - 1ª Temporada Completa 2019 (1080p) Acesse o ORIGINAL WWW.BLUDV.TV", {
         "title": "Love, Death & Robots",
         "seasons": [1],
         "episodes": [],
-        "languages": ["es"],
+        "audio_languages": ['es-ES'],
         "resolution": "1080p",
         "year": 2019,
         "complete": True,
         "site": "WWW.BLUDV.TV",
-        "trash": True
+        "trash": True,
+        "subtitle_languages": []
     }),
     ("www.MovCr.to - Bikram Yogi, Guru, Predator (2019) 720p WEB_DL x264 ESubs [Dual Audio]-[Hindi + Eng] - 950MB - MovCr.mkv", {
         "title": "Bikram Yogi, Guru, Predator",
         "year": 2019,
-        "languages": ["en", "hi"],
+        "audio_languages": ['hi-IN', 'en-US'],
         "quality": "WEB-DL",
         "resolution": "720p",
         "codec": "avc",
@@ -539,7 +587,8 @@ def parser():
         "episodes": [],
         "group": "MovCr",
         "seasons": [],
-        "size": "950MB"
+        "size": "950MB",
+        "subtitle_languages": ['en-US']
     }),
     ("28.days.2000.1080p.bluray.x264-mimic.mkv", {
         "title": "28 days",
@@ -551,8 +600,9 @@ def parser():
         "extension": "mkv",
         "group": "mimic",
         "episodes": [],
-        "languages": [],
-        "seasons": []
+        "audio_languages": [],
+        "seasons": [],
+        "subtitle_languages": []
     }),
     ("4.20.Massacre.2018.1080p.BluRay.x264.AAC-[YTS.MX].mp4", {
         "title": "4 20 Massacre",
@@ -563,10 +613,11 @@ def parser():
         "audio": ["AAC"],
         "container": "mp4",
         "extension": "mp4",
-        "languages": [],
+        "audio_languages": [],
         "episodes": [],
         "seasons": [],
-        "site": "YTS.MX"
+        "site": "YTS.MX",
+        "subtitle_languages": []
     }),
     ("inside.out.2.2024.d.ru.ua.ts.1o8op.mkv", {
         "title": "inside out 2",
@@ -575,10 +626,11 @@ def parser():
         "quality": "TeleSync",
         "container": "mkv",
         "extension": "mkv",
-        "languages": ["ru"],
+        "audio_languages": ['ru-RU'],
         "episodes": [],
         "seasons": [],
-        "trash": True
+        "trash": True,
+        "subtitle_languages": []
     }),
     ("I.S.S.2023.P.WEB-DL.1O8Op.mkv", {
         "title": "I S S",
@@ -586,9 +638,10 @@ def parser():
         "quality": "WEB-DL",
         "container": "mkv",
         "extension": "mkv",
-        "languages": [],
+        "audio_languages": [],
         "episodes": [],
-        "seasons": []
+        "seasons": [],
+        "subtitle_languages": []
     }),
     ("Skazka.2022.Pa.WEB-DL.1O8Op.mkv", {
         "title": "Skazka",
@@ -596,9 +649,10 @@ def parser():
         "quality": "WEB-DL",
         "container": "mkv",
         "extension": "mkv",
-        "languages": [],
+        "audio_languages": [],
         "episodes": [],
-        "seasons": []
+        "seasons": [],
+        "subtitle_languages": []
     }),
     ("Spider-Man.Across.the.Spider-Verse.2023.Dt.WEBRip.1O8Op.mkv", {
         "title": "Spider-Man Across the Spider-Verse",
@@ -606,9 +660,10 @@ def parser():
         "quality": "WEBRip",
         "container": "mkv",
         "extension": "mkv",
-        "languages": [],
+        "audio_languages": [],
         "episodes": [],
-        "seasons": []
+        "seasons": [],
+        "subtitle_languages": []
     }),
     ("Civil.War.2024.D.WEB-DL.1O8Op.mkv", {
         "title": "Civil War",
@@ -616,9 +671,10 @@ def parser():
         "quality": "WEB-DL",
         "container": "mkv",
         "extension": "mkv",
-        "languages": [],
+        "audio_languages": [],
         "episodes": [],
-        "seasons": []
+        "seasons": [],
+        "subtitle_languages": []
     }),
     ("Dune.Part.Two.2024.2160p.WEB-DL.DDP5.1.Atmos.DV.HDR.H.265-FLUX[TGx]", {
         "title": "Dune Part Two",
@@ -631,90 +687,97 @@ def parser():
         "group": "FLUX",
         "episodes": [],
         "hdr": ["DV", "HDR"],
-        "languages": [],
-        "seasons": []
+        "audio_languages": [],
+        "seasons": [],
+        "subtitle_languages": []
     }),
     ("Saw.3D.2010.1080p.ITA-ENG.BluRay.x265.AAC-V3SP4EV3R.mkv", {
         "title": "Saw 3D",
         "year": 2010,
         "seasons": [],
         "episodes": [],
-        "languages": ["en", "it"],
+        "audio_languages": ['it-IT', 'en-US'],
         "resolution": "1080p",
         "quality": "BluRay",
         "codec": "hevc",
         "audio": ["AAC"],
         "container": "mkv",
         "extension": "mkv",
-        "group": "V3SP4EV3R"
+        "group": "V3SP4EV3R",
+        "subtitle_languages": []
     }),
     ("Dead Before Dawn 3D (2012) [3D.BLU-RAY] [1080p 3D] [BluRay] [HSBS] [YTS.MX]", {
         "title": "Dead Before Dawn 3D",
         "year": 2012,
-        "languages": [],
+        "audio_languages": [],
         "seasons": [],
         "episodes": [],
         "resolution": "1080p",
         "quality": "BluRay",
         "3d": True,
-        "site": "YTS.MX"
+        "site": "YTS.MX",
+        "subtitle_languages": []
     }),
     ("Wonder.Woman.1984.2020.3D.1080p.BluRay.x264-SURCODE[rarbg]", {
         "title": "Wonder Woman 1984",
         "year": 2020,
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "1080p",
         "scene": True,
         "quality": "BluRay",
         "codec": "avc",
         "group": "SURCODE",
         "3d": True,
-        "site": "rarbg"
+        "site": "rarbg",
+        "subtitle_languages": []
     }),
     ("The.Last.of.Us.S01E08.1080p.WEB.H264-CAKES[TGx]", {
         "title": "The Last of Us",
         "seasons": [1],
         "episodes": [8],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "1080p",
         "scene": True,
         "quality": "WEB",
         "codec": "avc",
-        "group": "CAKES"
+        "group": "CAKES",
+        "subtitle_languages": []
     }),
     ("The.Office.UK.S01.1080P.BLURAY.REMUX.AVC.DD5.1-NOGRP", {
         "title": "The Office",
         "seasons": [1],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "country": "UK",
         "quality": "BluRay REMUX",
         "resolution": "1080p",
         "audio": ["Dolby Digital"],
         "channels": ["5.1"],
         "codec": "avc",
-        "group": "NOGRP"
+        "group": "NOGRP",
+        "subtitle_languages": []
     }),
     ("The.Office.US.S01-09.COMPLETE.SERIES.1080P.BLURAY.X265-HIQVE", {
         "title": "The Office",
         "seasons": [1, 2, 3, 4, 5, 6, 7, 8, 9],
         "episodes": [],
         "country": "US",
-        "languages": [],
+        "audio_languages": [],
         "quality": "BluRay",
         "resolution": "1080p",
         "codec": "hevc",
         "complete": True,
-        "group": "HIQVE"
+        "group": "HIQVE",
+        "subtitle_languages": []
     }),
     ("Hard Knocks 2001 S23E01 1080p MAX WEB-DL DDP2 0 x264-NTb[EZTVx.to].mkv", {
         "title": "Hard Knocks",
         "year": 2001,
         "seasons": [23],
         "episodes": [1],
-        "languages": [],
+        "audio_languages": [],
         "quality": "WEB-DL",
         "resolution": "1080p",
         "codec": "avc",
@@ -723,13 +786,14 @@ def parser():
         "group": "NTb",
         "extension": "mkv",
         "container": "mkv",
-        "site": "EZTVx.to"
+        "site": "EZTVx.to",
+        "subtitle_languages": []
     }),
     ("Fallout.S01E03.The.Head.2160p.DV.HDR10Plus.Ai-Enhanced.H265.DDP.5.1.MULTI.RIFE.4.15v2-60fps-DirtyHippie.mkv", {
         "title": "Fallout",
         "seasons": [1],
         "episodes": [3],
-        "languages": [],
+        "audio_languages": ['multi'],
         "resolution": "2160p",
         "codec": "hevc",
         "audio": ["Dolby Digital Plus"],
@@ -739,43 +803,47 @@ def parser():
         "dubbed": True,
         "extension": "mkv",
         "hdr": ["DV", "HDR10+"],
-        "upscaled": True
+        "upscaled": True,
+        "subtitle_languages": []
     }),
     ("BoJack Horseman [06x01-08 of 16] (2019-2020) WEB-DLRip 720p", {
         "title": "BoJack Horseman",
         "seasons": [6],
         "episodes": [1, 2, 3, 4, 5, 6, 7, 8],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "720p",
         "quality": "WEB-DLRip",
-        "complete": True  # this is not correct, but not a big deal either..
+        "complete": True,  # this is not correct, but not a big deal either..
+        "subtitle_languages": []
     }),
     ("Трон: Наследие / TRON: Legacy (2010) WEB-DL 1080p | D | Open Matte", {
         "title": "TRON: Legacy",
         "year": 2010,
         "seasons": [],
         "episodes": [],
-        "languages": ["ru"],
+        "audio_languages": ['ru-RU'],
         "resolution": "1080p",
         "quality": "WEB-DL",
+        "subtitle_languages": []
     }),
     ("Wentworth.S08E06.PDTV.AAC2.0.x264-BTN", {
         "title": "Wentworth",
         "seasons": [8],
         "episodes": [6],
-        "languages": [],
+        "audio_languages": [],
         "quality": "PDTV",
         "codec": "avc",
         "audio": ["AAC"],
         "channels": ["2.0"],
-        "group": "BTN"
+        "group": "BTN",
+        "subtitle_languages": []
     }),
     ("www.1Tamilblasters.co - Guardians of the Galaxy Vol. 3 (2023) [4K IMAX UHD HEVC - BDRip - [Tam + Mal + Tel + Hin + Eng] - x264 - DDP5.1 (192Kbps) - 8.3GB - ESub].mkv", {
         "title": "Guardians of the Galaxy Vol. 3",
         "year": 2023,
         "seasons": [],
         "episodes": [],
-        "languages": ["en", "hi", "te", "ta", "ml"],
+        "audio_languages": ['ta-IN', 'ml-IN', 'te-IN', 'hi-IN', 'en-US'],
         "quality": "BDRip",
         "codec": "hevc",
         "audio": ["Dolby Digital Plus"],
@@ -786,12 +854,13 @@ def parser():
         "site": "www.1Tamilblasters.co",
         "bitrate": "192kbps",
         "edition": "IMAX",
-        "size": "8.3GB"
+        "size": "8.3GB",
+        "subtitle_languages": ['en-US']
     }),
     ("【高清影视之家发布 www.hdbthd.com】奥本海默 杜比视界版本 高码版 国英多音轨 中文字幕 .oppenheimer.2023.2160p.hq.web-dl.h265.dv.ddp5.1.2audio-dreamhd", {
         "title": "高清影视之家发布",
         "year": 2023,
-        "languages": ["zh"],
+        "audio_languages": ['zh-CN'],
         "quality": "WEB-DL",
         "codec": "hevc",
         "audio": ["Dolby Digital Plus"],
@@ -802,27 +871,29 @@ def parser():
         "group": "dreamhd",
         "hdr": ["DV"],
         "seasons": [],
-        "trash": True
+        "trash": True,
+        "subtitle_languages": []
     }),
     ("Venom (2018) HD-TS 720p Hindi Dubbed (Clean Audio) x264", {
         "title": "Venom",
         "year": 2018,
         "seasons": [],
         "episodes": [],
-        "languages": ["hi"],
+        "audio_languages": ['hi-IN'],
         "quality": "TeleSync",
         "resolution": "720p",
         "codec": "avc",
         "audio": ["HQ Clean Audio"],
         "dubbed": True,
-        "trash": True
+        "trash": True,
+        "subtitle_languages": []
     }),
     ("www.Tamilblasters.party - The Wheel of Time (2021) Season 01 EP(01-08) [720p HQ HDRip - [Tam + Tel + Hin] - DDP5.1 - x264 - 2.7GB - ESubs]", {
         "title": "The Wheel of Time",
         "year": 2021,
         "seasons": [1],
         "episodes": [1, 2, 3, 4, 5, 6, 7, 8],
-        "languages": ["hi", "te", "ta"],
+        "audio_languages": ['ta-IN', 'te-IN', 'hi-IN'],
         "quality": "HDRip",
         "resolution": "720p",
         "codec": "avc",
@@ -830,29 +901,32 @@ def parser():
         "channels": ["5.1"],
         "site": "www.Tamilblasters.party",
         "size": "2.7GB",
-        "trash": True
+        "trash": True,
+        "subtitle_languages": ['en-US']
     }),
     ("The.Walking.Dead.S06E07.SUBFRENCH.HDTV.x264-AMB3R.mkv", {
         # should detect french language and subbed
         "title": "The Walking Dead",
         "seasons": [6],
         "episodes": [7],
-        "languages": ["fr"],
+        "audio_languages": [],
         "quality": "HDTV",
         "codec": "avc",
         "group": "AMB3R",
         "extension": "mkv",
-        "container": "mkv"
+        "container": "mkv",
+        "subtitle_languages": ['fr-FR']
     }),
     ("The Walking Dead S05E03 720p Remux x264-ASAP[ettv]", {
         "title": "The Walking Dead",
         "seasons": [5],
         "episodes": [3],
-        "languages": [],
+        "audio_languages": [],
         "quality": "REMUX",
         "resolution": "720p",
         "codec": "avc",
-        "group": "ASAP"
+        "group": "ASAP",
+        "subtitle_languages": []
     }),
     ("www.TamilBlasters.vip - Shang-Chi (2021) [720p BDRip - [Tamil + Telugu + Hindi + Eng] - x264 - DDP5.1 (192 Kbps) - 1.4GB - ESubs].mkv", {
         # should not find "Shang-Chi" as chinese language
@@ -860,7 +934,7 @@ def parser():
         "year": 2021,
         "seasons": [],
         "episodes": [],
-        "languages": ["en", "hi", "te", "ta"],
+        "audio_languages": ['ta-IN', 'te-IN', 'hi-IN', 'en-US'],
         "quality": "BDRip",
         "resolution": "720p",
         "codec": "avc",
@@ -869,24 +943,26 @@ def parser():
         "site": "www.TamilBlasters.vip",
         "size": "1.4GB",
         "extension": "mkv",
-        "container": "mkv"
+        "container": "mkv",
+        "subtitle_languages": ['en-US']
     }),
     ("Game of Thrones 1ª a 8ª Temporada Completa [720p-1080p] [BluRay] [DUAL]", {
         "title": "Game of Thrones",
         "seasons": [1, 2, 3, 4, 5, 6, 7, 8],
         "episodes": [],
-        "languages": ["es"],
+        "audio_languages": ['es-ES'],
         "resolution": "1080p",
         "quality": "BluRay",
         "complete": True,
-        "dubbed": True
+        "dubbed": True,
+        "subtitle_languages": []
     }),
     ("Kill.2024.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-XEBEC.mkv", {
         "title": "Kill",
         "year": 2024,
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "1080p",
         "quality": "WEB-DL",
         "codec": "avc",
@@ -896,110 +972,120 @@ def parser():
         "container": "mkv",
         "extension": "mkv",
         "network": "Amazon",
-        "repack": True
+        "repack": True,
+        "subtitle_languages": []
     }),
     ("Mad.Max.Fury.Road.2015.1080p.BluRay.DDP5.1.x265.10bit-GalaxyRG265[TGx]", {
         "title": "Mad Max Fury Road",
         "year": 2015,
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "1080p",
         "codec": "hevc",
         "bit_depth": "10bit",
         "audio": ["Dolby Digital Plus"],
         "channels": ["5.1"],
         "group": "GalaxyRG265",
-        "quality": "BluRay"
+        "quality": "BluRay",
+        "subtitle_languages": []
     }),
     ("Властелин колец: Кольца власти (S1E1-8 of 8) / The Lord of the Rings: The Rings of Power (2022) WEB-DL", {
         "title": "Властелин колец: Кольца власти",  # The Lord of the Rings: The Rings of Power  - We probably want the US title instead here
         "year": 2022,
         "seasons": [1],
         "episodes": [1, 2, 3, 4, 5, 6, 7, 8],
-        "languages": ["ru"],
-        "quality": "WEB-DL"
+        "audio_languages": ['ru-RU'],
+        "quality": "WEB-DL",
+        "subtitle_languages": []
     }),
     ("抓娃娃 Successor.2024.TC1080P.国语中字", {
         "title": "Successor",
         "year": 2024,
         "seasons": [],
         "episodes": [],
-        "languages": ["zh"],
+        "audio_languages": ['zh-CN'],
         "resolution": "1080p",
         "quality": "TeleCine",
-        "trash": True
+        "trash": True,
+        "subtitle_languages": []
     }),
     ("True.Detective.S03E02.720p.WEB.x265-MiNX[eztv].mkv", {
         "title": "True Detective",
         "seasons": [3],
         "episodes": [2],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "720p",
         "scene": True,
         "quality": "WEB",
         "codec": "hevc",
         "group": "MiNX",
         "extension": "mkv",
-        "container": "mkv"
+        "container": "mkv",
+        "subtitle_languages": []
     }),
     ("True.Grit.1969.720p.WEB.x265-MiNX[eztv].mkv", {
         "title": "True Grit",
         "year": 1969,
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "720p",
         "scene": True,
         "quality": "WEB",
         "codec": "hevc",
         "group": "MiNX",
         "extension": "mkv",
-        "container": "mkv"
+        "container": "mkv",
+        "subtitle_languages": []
     }),
     ("Free Samples (2012) [BluRay] [1080p] [YTS.AM]", {
         "title": "Free Samples",
         "year": 2012,
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "1080p",
-        "quality": "BluRay"
+        "quality": "BluRay",
+        "subtitle_languages": []
     }),
     ("Trailer Park Boys S01-S10 + Movies + Specials + Extras [Ultimate Collection]-CAPTAiN", {
         "title": "Trailer Park Boys",
         "seasons": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "complete": True,
-        "group": "CAPTAiN"
+        "group": "CAPTAiN",
+        "subtitle_languages": []
     }),
     ("Adbhut (2024) Hindi 1080p HDTVRip x264 AAC 5.1 [2.2GB] - QRips", {
         "title": "Adbhut",
         "year": 2024,
         "seasons": [],
         "episodes": [],
-        "languages": ["hi"],
+        "audio_languages": ['hi-IN'],
         "resolution": "1080p",
         "quality": "HDTVRip",
         "codec": "avc",
         "audio": ["AAC"],
         "channels": ["5.1"],
         "group": "QRips",
-        "size": "2.2GB"
+        "size": "2.2GB",
+        "subtitle_languages": []
     }),
     ("Blood Diamond (2006) 1080p BluRay H264 DolbyD 5 1 + nickarad mp4", {
         "title": "Blood Diamond",
         "year": 2006,
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "1080p",
         "quality": "BluRay",
         "codec": "avc",
         "audio": ["Dolby Digital"],
         "channels": ["5.1"],
-        "container": "mp4"
+        "container": "mp4",
+        "subtitle_languages": []
     }),
     ("The Lockerbie Bombing (2013) Documentary HDTVRIP", {
         "title": "The Lockerbie Bombing",
@@ -1007,39 +1093,42 @@ def parser():
         "documentary": True,
         "seasons": [],
         "episodes": [],
-        "languages": [],
-        "quality": "HDTVRip"
+        "audio_languages": [],
+        "quality": "HDTVRip",
+        "subtitle_languages": []
     }),
     ("STEVE.martin.a.documentary.in.2.pieces.S01.COMPLETE.1080p.WEB.H264-SuccessfulCrab[TGx]", {
         "title": "STEVE martin a documentary in 2 pieces",
         "seasons": [1],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "quality": "WEB",
         "codec": "avc",
         "group": "SuccessfulCrab",
         "resolution": "1080p",
         "documentary": True,
         "scene": True,
-        "complete": True
+        "complete": True,
+        "subtitle_languages": []
     }),
     ("The New Frontier S01E10 720p WEB H264-INFLATE[eztv] mkv", {
         "title": "The New Frontier",
         "seasons": [1],
         "episodes": [10],
-        "languages": [],
+        "audio_languages": [],
         "quality": "WEB",
         "container": "mkv",
         "codec": "avc",
         "group": "INFLATE",
         "resolution": "720p",
-        "scene": True
+        "scene": True,
+        "subtitle_languages": []
     }),
     ("[BEST-TORRENTS.COM] The.Penguin.S01E07.MULTi.1080p.AMZN.WEB-DL.H264.DDP5.1.Atmos-K83", {
         "title": "The Penguin",
         "seasons": [1],
         "episodes": [7],
-        "languages": [],
+        "audio_languages": ['multi'],
         "resolution": "1080p",
         "quality": "WEB-DL",
         "network": "Amazon",
@@ -1048,36 +1137,39 @@ def parser():
         "audio": ["Atmos", "Dolby Digital Plus"],
         "channels": ["5.1"],
         # "group": "K83",
-        "site": "BEST-TORRENTS.COM"
+        "site": "BEST-TORRENTS.COM",
+        "subtitle_languages": []
     }),
     ("[ Torrent911.my ] The.Penguin.S01E07.FRENCH.WEBRip.x264.mp4", {
         "title": "The Penguin",
         "seasons": [1],
         "episodes": [7],
-        "languages": ["fr"],
+        "audio_languages": ['fr-FR'],
         "quality": "WEBRip",
         "codec": "avc",
         "site": "Torrent911.my",
         "container": "mp4",
-        "extension": "mp4"
+        "extension": "mp4",
+        "subtitle_languages": []
     }),
     ("The.O.C.Seasons.01-04.AMZN.1080p.10bit.x265.hevc-Bearfish", {
         "title": "The O C",
         "seasons": [1, 2, 3, 4],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "1080p",
         "network": "Amazon",
         "codec": "hevc",
         "bit_depth": "10bit",
-        "group": "Bearfish"
+        "group": "Bearfish",
+        "subtitle_languages": []
     }),
     ("The Adam Project 2022 2160p NF WEB-DL DDP 5 1 Atmos DoVi HDR HEVC-SiC mkv", {
         "title": "The Adam Project",
         "year": 2022,
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "2160p",
         "quality": "WEB-DL",
         "network": "Netflix",
@@ -1093,26 +1185,28 @@ def parser():
         "hdr": [
             "DV",
             "HDR"
-        ]
+        ],
+        "subtitle_languages": []
     }),
     ("1923 S02E01 The Killing Season 1080p AMZN WEB-DL DDP5 1 H 264-FLUX[TGx]", {
         "title": "1923",
         "seasons": [2],
         "episodes": [1],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "1080p",
         "quality": "WEB-DL",
         "network": "Amazon",
         "codec": "avc",
         "audio": ["Dolby Digital Plus"],
         "channels": ["5.1"],
-        "group": "FLUX"
+        "group": "FLUX",
+        "subtitle_languages": []
     }),
     ("1883.S01E01.1883.2160p.WEB-DL.DDP5.1.H.265-NTb.mkv", {
         "title": "1883",
         "seasons": [1],
         "episodes": [1],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "2160p",
         "quality": "WEB-DL",
         "codec": "hevc",
@@ -1120,114 +1214,125 @@ def parser():
         "channels": ["5.1"],
         "group": "NTb",
         "extension": "mkv",
-        "container": "mkv"
+        "container": "mkv",
+        "subtitle_languages": []
     }),
     ("1923 S02E01 1080p WEB H264-SuccessfulCrab", {
         "title": "1923",
         "seasons": [2],
         "episodes": [1],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "1080p",
         "quality": "WEB",
         "codec": "avc",
         "scene": True,
-        "group": "SuccessfulCrab"
+        "group": "SuccessfulCrab",
+        "subtitle_languages": []
     }),
     ("[Anime Time] Naruto - 116 - 360 Degrees of Vision The Byakugan's Blind Spot.mkv", {
         "title": "Naruto",
         "seasons": [],
         "episodes": [116],
-        "languages": [],
+        "audio_languages": [],
         "group": "Anime Time",
         "extension": "mkv",
-        "container": "mkv"
+        "container": "mkv",
+        "subtitle_languages": []
     }),
     ("[DKB] Blue Lock - (Season 01) [1080p][HEVC x265 10bit][Multi-Subs]", {
         "title": "Blue Lock",
         "seasons": [1],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "1080p",
         "bit_depth": "10bit",
         "codec": "hevc",
         "subbed": True,
-        "group": "DKB"
+        "group": "DKB",
+        "subtitle_languages": ['multi']
     }),
     ("[JySzE] Naruto [v2] [R2J] [VFR] [Dual Audio] [Complete] [Extras] [x264]", {
         "title": "Naruto",
         "seasons": [],
         "episodes": [],
-        "languages": ["fr"],
+        "audio_languages": ['fr-FR'],
         "codec": "avc",
         "dubbed": True,
         "group": "JySzE",
         "complete": True,
-        "region": "R2J"
+        "region": "R2J",
+        "subtitle_languages": []
     }),
     ("[JySzE] Naruto [v2] [R2J] [VFR] [Dual Audio] [Complete] [Extras] [x264]", {
         "title": "Naruto",
         "seasons": [],
         "episodes": [],
-        "languages": ["fr"],
+        "audio_languages": ['fr-FR'],
         "codec": "avc",
         "dubbed": True,
         "group": "JySzE",
         "complete": True,
-        "region": "R2J"
+        "region": "R2J",
+        "subtitle_languages": []
     }),
     ("Naruto HD [1080p] (001-220) [Complete Series + Movies]", {
         "title": "Naruto",
         "seasons": [],
         "episodes": list(range(1, 221)),
-        "languages": [],
+        "audio_languages": [],
         "resolution": "1080p",
         "quality": "HDTV",
         "complete": True,
+        "subtitle_languages": []
     }),
     ("[JySzE] Naruto [v3] [R2J] [VFR] [Dual Audio] [Complete] [Extras] [x264]", {   # check to see if it handles `[v3]`
         "title": "Naruto",
         "seasons": [],
         "episodes": [],
-        "languages": ["fr"],
+        "audio_languages": ['fr-FR'],
         "codec": "avc",
         "dubbed": True,
         "group": "JySzE",
         "complete": True,
-        "region": "R2J"
+        "region": "R2J",
+        "subtitle_languages": []
     }),
     ("NARUTO CARTOON NETWORK-TOONAMI BROADCAST (2005-2009) [TVRip] [Episodes 001-209 Movies 1 & 3 & OVA)", {
         "title": "NARUTO",
         "seasons": [],
         "episodes": list(range(1, 210)),
-        "languages": [],
+        "audio_languages": [],
         "quality": "TVRip",
         "complete": True,
         "extras": ["OVA"],
         "network": "Cartoon Network",
+        "subtitle_languages": []
     }),
     ("NARUTO CARTOON NETWORK-TOONAMI BROADCAST (2005-2009) [TVRip] [Episodes 001-209 Movies 1 & 3 & OVA)", {
         "title": "NARUTO",
         "seasons": [],
         "episodes": list(range(1, 210)),
-        "languages": [],
+        "audio_languages": [],
         "quality": "TVRip",
         "complete": True,
         "extras": ["OVA"],
         "network": "Cartoon Network",
+        "subtitle_languages": []
     }),
     ("Naruto Complete [Ep 01 - 220][English][480p]", {  # was incorrectly parsing episodes before
         "title": "Naruto",
         "seasons": [],
         "episodes": list(range(1, 221)),
-        "languages": ["en"],
+        "audio_languages": ['en-US'],
         "complete": True,
         "resolution": "480p",
+        "subtitle_languages": []
     }),
     ("[DBD-Raws][火影忍者/Naruto/NARUTO -ナルト-][166-192TV][BOX7][美版/USA.Ver][1080P][BDRip][HEVC-10bit][FLAC][MKV]", {
         "title": "Naruto",
         "seasons": [],
         "episodes": list(range(166, 193)),
-        "languages": ["ja", "zh"],
+        "audio_languages": ['zh-CN', 'ja-JP'],
         "quality": "BDRip",
         "audio": ["FLAC"],
         "resolution": "1080p",
@@ -1235,62 +1340,67 @@ def parser():
         "bit_depth": "10bit",
         "container": "mkv",
         "group": "DBD-Raws",
+        "subtitle_languages": []
     }),
     ("Naruto Collection [DB 1080p][ Dual Audio ][ English & Arabic Sub ]", {
         "title": "Naruto",
         "seasons": [],
         "episodes": [],
-        "languages": ["en", "ar"],
+        "audio_languages": ['en-US'],
         "resolution": "1080p",
         "subbed": True,
         "dubbed": True,
         "complete": True,
+        "subtitle_languages": ['ar-EG']
     }),
     ("Inherent.Vice.2014.1080p.BluRay.AVC.DTS-HD.MA.5.1-RARBG", { # test "Vice"
         "title": "Inherent Vice",
         "year": 2014,
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "resolution": "1080p",
         "codec": "avc",
-        "audio": ["DTS Lossless"],
+        "audio": ['DTS-HD MA'],
         "channels": ["5.1"],
         "group": "RARBG",
         "quality": "BluRay",
-        "site": "RARBG"
+        "site": "RARBG",
+        "subtitle_languages": []
     }),
     ("Агентство / The Agency / Сезон: 1 / Серии: 1-10 из 10 [2024 HEVC HDR10 Dolby Vision WEB-DL 2160p 4k] MVO (HDRezka Studio) + DVO (Viruse Project) + Original + Sub (Eng)", {
         "title": "The Agency",
         "seasons": [1],
         "episodes": list(range(1, 11)),
-        "languages": ["en", "ru"],
+        "audio_languages": ['ru-RU'],
         "quality": "WEB-DL",
         "resolution": "2160p",
         "bit_depth": "10bit",
         "codec": "hevc",
-        "hdr": ["DV", "HDR"],
+        "hdr": ['DV', 'HDR10'],
         "subbed": True,
         "year": 2024,
+        "subtitle_languages": ['en-US']
     }),
     ("A Complete Unknown 2024 1080p MA WEB-DL DDP5 1 Atmos H 264-BYNDR mkv", {
         "title": "A Complete Unknown",
         "year": 2024,
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "quality": "WEB-DL",
         "resolution": "1080p",
         "codec": "avc",
         "container": "mkv",
         "audio": ["Atmos", "Dolby Digital Plus"],
         "channels": ["5.1"],
+        "subtitle_languages": []
     }),
     ("[Ex-torrenty.org]iCarly.S04.PLDUB.1080p.AMZN.WEB-DL.DDP2.0.H264-Ralf", {
         "title": "iCarly",
         "seasons": [4],
         "episodes": [],
-        "languages": ["pl"], # check to see if it handles `PLDUB`
+        "audio_languages": ['pl-PL'], # check to see if it handles `PLDUB`
         "channels": ["2.0"],
         "quality": "WEB-DL",
         "resolution": "1080p",
@@ -1299,6 +1409,7 @@ def parser():
         "group": "Ralf",
         "network": "Amazon",
         "site": "Ex-torrenty.org",
+        "subtitle_languages": []
     }),
     ("Deadpool (2016) [2160p] [7.1 AAC ENG] [5.1 AAC ENG FRE GER ITA SPA] [COMMENTARY] [Multi-Sub] [10bit] [UHD] [HEVC] [x265] [pseudo].mkv", {
         "container": "mkv",
@@ -1314,18 +1425,13 @@ def parser():
             "AAC"
         ],
         "episodes": [],
-        "languages": [
-            "en",
-            "fr",
-            "es",
-            "it",
-            "de"
-        ],
+        "audio_languages": ['en-US', 'fr-FR', 'de-DE', 'it-IT', 'es-ES'],
         "subbed": True,
         "commentary": True,
         "extension": "mkv",
         "seasons": [],
-        "title": "Deadpool"
+        "title": "Deadpool",
+        "subtitle_languages": ['multi']
     }),
     ("Deadpool [BDremux 1080p][AC3 5.1-DTS 5.1 Castellano-DTSEX 5.1 Ingles+Subs][ES-EN]", {
         "resolution": "1080p",
@@ -1339,33 +1445,29 @@ def parser():
             "Dolby Digital"
         ],
         "episodes": [],
-        "languages": [
-            "en",
-            "es"
-        ],
+        "audio_languages": ['es-ES', 'en-US'],
         "subbed": True,
         "seasons": [],
-        "title": "Deadpool"
+        "title": "Deadpool",
+        "subtitle_languages": []
     }),
     ("X-Men Complete 13 Movie Collection Sci-Fi 2000 - 2020 Eng Rus Multi-Subs 1080p [H264-mp4]", {
         "container": "mp4",
         "resolution": "1080p",
         "complete": True,
         "codec": "avc",
-        "languages": [
-            "en",
-            "ru"
-        ],
+        "audio_languages": ['en-US', 'ru-RU'],
         "subbed": True,
         "episodes": [],
         "seasons": [],
-        "title": "X-Men"
+        "title": "X-Men",
+        "subtitle_languages": ['multi']
     }),
     ("BLACK PANTHER - Wakanda Forever (2022) 10bit.m1080p.BRRip.H265.MKV.AC3-5.1 DUBPL-ENG-NapisyPL [StarLord]", {
         "container": "mkv",
         "resolution": "1080p",
         "codec": "hevc",
-        "languages": ["en", "pl"],
+        "audio_languages": ['pl-PL', 'en-US'],
         "episodes": [],
         "seasons": [],
         "audio": ["Dolby Digital"],
@@ -1374,12 +1476,13 @@ def parser():
         "quality": "BRRip",
         "year": 2022,
         "title": "BLACK PANTHER - Wakanda Forever",
+        "subtitle_languages": []
     }),
     ("The.White.Lotus.2.Sezon.7.Bölüm.2021.1080p.BLUTV.WEB-DL.AAC2.0.H.264-TURG.mkv", {
         "container": "mkv",
         "resolution": "1080p",
         "codec": "avc",
-        "languages": [],
+        "audio_languages": [],
         "episodes": [7], # check to see if it handles `7.Bölüm`
         "seasons": [2], # check to see if it handles `2.Sezon`
         "audio": ["AAC"],
@@ -1389,6 +1492,7 @@ def parser():
         "year": 2021,
         "extension": "mkv",
         "group": "TURG",
+        "subtitle_languages": []
     }),
     ("Apollo 13 (1995) [1080p] [WEB-DL] [x264] [E-AC3-S78] [Lektor PL]", {
         "resolution": "1080p",
@@ -1397,11 +1501,10 @@ def parser():
         "codec": "avc",
         "audio": ["Dolby Digital Plus"], # check to see if it handles `E-AC3-S78`
         "seasons": [],
-        "languages": [
-            "pl"
-        ],
+        "audio_languages": ['pl-PL'],
         "episodes": [],
-        "title": "Apollo 13"
+        "title": "Apollo 13",
+        "subtitle_languages": []
     }),
     ("The Killer's Game 2024 PL 1080p WEB-DL H264 DD5.1-S56", {
         "resolution": "1080p",
@@ -1411,9 +1514,10 @@ def parser():
         "channels": ["5.1"],
         "audio": ["Dolby Digital"],
         "seasons": [], # make sure it doesnt pick up `S56`
-        "languages": ["pl"],
+        "audio_languages": ['pl-PL'],
         "episodes": [],
-        "title": "The Killer's Game"
+        "title": "The Killer's Game",
+        "subtitle_languages": []
     }),
     ("[a-s]_fairy_tail_-_003_-_infiltrate_the_everlue_mansion__rs2_[1080p_bd-rip][4CB16872].mkv", {
         "container": "mkv",
@@ -1424,8 +1528,9 @@ def parser():
         "episodes": [3],
         "extension": "mkv",
         "group": "a-s",
-        "languages": [],
-        "title": "fairy tail"
+        "audio_languages": [],
+        "title": "fairy tail",
+        "subtitle_languages": []
     }),
     ("[Taxi 1998] [BDRemux Rutracker.org].mkv", {
         "container": "mkv",
@@ -1435,8 +1540,9 @@ def parser():
         "extension": "mkv",
         "episodes": [],
         "seasons": [],
-        "languages": [],
-        "title": "Taxi"
+        "audio_languages": [],
+        "title": "Taxi",
+        "subtitle_languages": []
     }),
     ("www 1TamilBlasters tel - Migration (2023) [English - 720p HQ HDRip - x264 - [DD5 1  (192Kbps) + AAC] - 850MB - ESub] mkv", {
         "audio": ["Dolby Digital", "AAC"],
@@ -1445,7 +1551,7 @@ def parser():
         "codec": "avc",
         "container": "mkv",
         "episodes": [],
-        "languages": ["en"],
+        "audio_languages": ['en-US'],
         "quality": "HDRip",
         "resolution": "720p",
         "seasons": [],
@@ -1453,21 +1559,23 @@ def parser():
         "size": "850MB",
         "title": "Migration",
         "trash": True,
-        "year": 2023
+        "year": 2023,
+        "subtitle_languages": ['en-US']
     }),
     ("www TamilBlasters tel - Sonic the Hedgehog 2 (2022) English 720p HDRip x264 AAC 800MB ESubs mkv", {
         "audio": ["AAC"],
         "codec": "avc",
         "container": "mkv",
         "episodes": [],
-        "languages": ["en"],
+        "audio_languages": ['en-US'],
         "quality": "HDRip",
         "resolution": "720p",
         "seasons": [],
         "site": "www TamilBlasters tel",
         "size": '800MB',
         "title": "Sonic the Hedgehog 2",
-        "year": 2022
+        "year": 2022,
+        "subtitle_languages": ['en-US']
     }),
     ("That 70s Show S02 1080p BluRay REMUX AVC DTS-HD MA 5 1-EPSiLON", {
         "resolution": "1080p",
@@ -1476,16 +1584,15 @@ def parser():
         "channels": [
             "5.1"
         ],
-        "audio": [
-            "DTS Lossless"
-        ],
+        "audio": ['DTS-HD MA'],
         "group": "EPSiLON",
         "seasons": [
             2
         ],
         "episodes": [],
-        "languages": [],
-        "title": "That 70s Show"
+        "audio_languages": [],
+        "title": "That 70s Show",
+        "subtitle_languages": []
     }),
     ("[bonkai77].RahXephon.Episode.08.Bitterly.Cold.Holy.Night.[BD.1080p.Dual.Audio.x265.HEVC.10bit].mkv", {
         "title": "RahXephon",
@@ -1496,10 +1603,11 @@ def parser():
         "dubbed": True,
         "seasons": [],
         "episodes": [8],
-        "languages": [],
+        "audio_languages": [],
         "extension": "mkv",
         "quality": "BDRip",
         "group": "bonkai77",
+        "subtitle_languages": []
     }),
     ("One.Piece.S004E111.Dash.For.a.Miracle!.Alabasta.Animal.Land!.1080p.NF.WEB-DL.DDP2.0.x264-KQRM.mkv", {
         "title": "One Piece",
@@ -1510,11 +1618,12 @@ def parser():
         "audio": ["Dolby Digital Plus"],
         "seasons": [4],
         "episodes": [111],
-        "languages": [],
+        "audio_languages": [],
         "extension": "mkv",
         "container": "mkv",
         "group": "KQRM",
-        "network": "Netflix"
+        "network": "Netflix",
+        "subtitle_languages": []
     }),
     ("[Anime Time] One Piece (0001-1071+Movies+Specials) [BD+CR] [Dual Audio] [1080p][HEVC 10bit x265][AAC][Multi Sub]", {
         "title": "One Piece",
@@ -1523,21 +1632,23 @@ def parser():
         "audio": ["AAC"],
         "seasons": [],
         "episodes": list(range(1, 1072)),
-        "languages": [],
+        "audio_languages": [],
         "group": "Anime Time",
         "dubbed": True,
         "subbed": True,
         "bit_depth": "10bit",
+        "subtitle_languages": ['multi']
     }),
     ("[Kaerizaki-Fansub] One Piece 1098 VOSTFR FHD (1920x1080).mp4", {
         "title": "One Piece",
         "resolution": "1080p",
         "seasons": [],
         "episodes": [1098],
-        "languages": ["fr"],
+        "audio_languages": [],
         "group": "Kaerizaki-Fansub",
         "container": "mp4",
         "extension": "mp4",
+        "subtitle_languages": ['fr-FR']
     }),
     ("One Punch Man (2019) - S02 - E01 à E12 - [WEB-DL][1080p][Multiple Subtitle][x264][Intégrale Saison 02]", {
         "title": "One Punch Man",
@@ -1545,11 +1656,12 @@ def parser():
         "resolution": "1080p",
         "seasons": [2],
         "episodes": list(range(1, 13)),
-        "languages": ["fr"],
+        "audio_languages": ['fr-FR'],
         "subbed": True,
         "quality": "WEB-DL",
         "codec": "avc",
         "complete": True,
+        "subtitle_languages": ['multi']
     }),
     ("FRASIER 1993-2004 [S01-11] [1080P WEB-DL H265 EAC3-FT] [ENG-LEKTOR PL] [ALUSIA]", {
         "title": "FRASIER",
@@ -1557,11 +1669,12 @@ def parser():
         "resolution": "1080p",
         "seasons": list(range(1, 12)),
         "episodes": [],
-        "languages": ["en", "pl"],
+        "audio_languages": ['en-US', 'pl-PL'],
         "quality": "WEB-DL",
         "codec": "hevc",
         "complete": True,
-        "audio": ["Dolby Digital Plus"]
+        "audio": ["Dolby Digital Plus"],
+        "subtitle_languages": []
     }),
     ("The Shawshank Redemption 1994 1080p BluRay DDP 5 1 x265-EDGE2020 mkv", {
         "title": "The Shawshank Redemption",
@@ -1569,13 +1682,14 @@ def parser():
         "resolution": "1080p",
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "quality": "BluRay",
         "codec": "hevc",
         "channels": ["5.1"],
         "audio": ["Dolby Digital Plus"],
         "container": "mkv",
         "group": "EDGE2020",
+        "subtitle_languages": []
     }),
     ("Mission Impossible Dead Reckoning Part One 2023 1080p BluRay DDP 7 1 x265-EDGE2020 mkv", {
         "title": "Mission Impossible Dead Reckoning Part One",
@@ -1583,13 +1697,14 @@ def parser():
         "resolution": "1080p",
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "quality": "BluRay",
         "codec": "hevc",
         "channels": ["7.1"],
         "audio": ["Dolby Digital Plus"],
         "container": "mkv",
         "group": "EDGE2020",
+        "subtitle_languages": []
     }),
     ("The Dark Knight 2008 IMAX 1080p BluRay DDP 5 1 H 265-EDGE2020 mkv", {
         "title": "The Dark Knight",
@@ -1597,7 +1712,7 @@ def parser():
         "resolution": "1080p",
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "edition": "IMAX",
         "quality": "BluRay",
         "codec": "hevc",
@@ -1605,6 +1720,7 @@ def parser():
         "audio": ["Dolby Digital Plus"],
         "container": "mkv",
         "group": "EDGE2020",
+        "subtitle_languages": []
     }),
     ("Interstellar 2014 1080p BluRay DDP 5 1 x265-EDGE2020 mkv", {
         "title": "Interstellar",
@@ -1612,48 +1728,52 @@ def parser():
         "resolution": "1080p",
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "quality": "BluRay",
         "codec": "hevc",
         "channels": ["5.1"],
         "audio": ["Dolby Digital Plus"],
         "container": "mkv",
         "group": "EDGE2020",
+        "subtitle_languages": []
     }),
     ("The Fairly OddParents Fairly Odder S01 720p PMTP WEBRip DDP5 1 x264 TEPES rartv ORARBG", {
         "title": "The Fairly OddParents Fairly Odder", # make sure `ddp` isn't parsed as Dolby Digital Plus
         "resolution": "720p",
         "seasons": [1],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "quality": "WEBRip",
         "codec": "avc",
         "channels": ["5.1"],
         "site": "RARBG",
-        "audio": ["Dolby Digital Plus"]
+        "audio": ["Dolby Digital Plus"],
+        "subtitle_languages": []
     }),
     ("Formula1.S2025E86.Italy.Grand.Prix.1080i.HDTV.MPA2.0.H.264-playTV", {
         "title": "Formula1",
         "resolution": "1080i",
         "seasons": [2025], # parse 4-digit season
         "episodes": [86],
-        "languages": [],
+        "audio_languages": [],
         "quality": "HDTV",
         "codec": "avc",
         "channels": ["2.0"],
         "group": "playTV",
+        "subtitle_languages": []
     }),
     ("Georgie and Mandys First Marriage S01E18 TV Money 720p AMZN WEB DL DDP5 1 H 264 FLUX EZTV", {
         "title": "Georgie and Mandys First Marriage", # make sure it has full title
         "resolution": "720p",
         "seasons": [1],
         "episodes": [18],
-        "languages": [],
+        "audio_languages": [],
         "quality": "WEB-DL",
         "codec": "avc",
         "channels": ["5.1"],
         "network": "Amazon",
-        "audio": ["Dolby Digital Plus"]
+        "audio": ["Dolby Digital Plus"],
+        "subtitle_languages": []
     }),
     ("xXx.2002.15th.Anniversary.Edition.1080p.BluRay.Remux.AVC.DTS-HD.MA.5.1-FraMeSToR", {
         "title": "xXx", # make sure we don't parse as adult title
@@ -1661,22 +1781,24 @@ def parser():
         "resolution": "1080p",
         "seasons": [],
         "episodes": [],
-        "languages": [],
+        "audio_languages": [],
         "quality": "BluRay REMUX",
         "codec": "avc",
         "channels": ["5.1"],
-        "audio": ["DTS Lossless"],
+        "audio": ['DTS-HD MA'],
         "group": "FraMeSToR",
-        "edition": "Anniversary Edition"
+        "edition": "Anniversary Edition",
+        "subtitle_languages": []
     }),
     ("Dragon Ball Z (Complete Series) [1080p] [MP4] [English Audio]", {
         "title": "Dragon Ball Z",
         "resolution": "1080p",
         "seasons": [],
         "episodes": [],
-        "languages": ["en"],
+        "audio_languages": ['en-US'],
         "container": "mp4",
         "complete": True,
+        "subtitle_languages": []
     }),
     ("Jack-of-All-Trades Party Of None S01E01 DUBBED 1080p WEB H264-SKYANiME", {
         "codec": "avc",
@@ -1684,11 +1806,12 @@ def parser():
         "scene": True,
         "episodes": [1],
         "group": "SKYANiME",
-        "languages": [],
+        "audio_languages": [],
         "quality": "WEB",
         "resolution": "1080p",
         "seasons": [1],
-        "title": "Jack-of-All-Trades Party Of None"
+        "title": "Jack-of-All-Trades Party Of None",
+        "subtitle_languages": []
     }),
     ("[LostYears] takt op.Destiny (WEB 1080p x264 AAC) [Dual-Audio]", {
         "codec": "avc",
@@ -1696,11 +1819,12 @@ def parser():
         "dubbed": True,
         "episodes": [],
         "group": "LostYears",
-        "languages": [],
+        "audio_languages": [],
         "quality": "WEB",
         "resolution": "1080p",
         "seasons": [],
-        "title": "takt op.Destiny"
+        "title": "takt op.Destiny",
+        "subtitle_languages": []
     }),
 ])
 def test_random_releases_parse(parser, release_name, expected_output):
@@ -1714,7 +1838,7 @@ def test_random_releases_parse(parser, release_name, expected_output):
 #         "dubbed": True,
 #         "episodes": [],
 #         "group": "LostYears",
-#         "languages": [],
+#         "audio_languages": [],
 #         "quality": "WEB",
 #         "resolution": "1080p",
 #         "seasons": [],

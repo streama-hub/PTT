@@ -72,4 +72,4 @@ def test_episode_code(parser):
 #     for test_case, expected in test_cases:
 #         result = parser.parse(test_case)
 #         assert isinstance(result, dict)
-#         assert result["languages"] == expected
+#         assert result["audio_languages"] == expected

@@ -25,14 +25,14 @@ clean:
 	@find . -type d -name '.ruff_cache' -exec rm -rf {} +
 
 keywords:
-	@uv run python cli.py combine ./PTT/keywords/
+	@uv run python -m PTT.cli combine ./PTT/keywords/
 
 format:
 	@uv run black $(SRC_DIR)
 
 sort:
 	@uv run isort $(SRC_DIR)
-	@uv run python cli.py dedupe ./PTT/keywords/combined-keywords.txt
+	@uv run python -m PTT.cli dedupe ./PTT/keywords/combined-keywords.txt
 
 lint:
 	@uv run ruff check $(SRC_DIR)
